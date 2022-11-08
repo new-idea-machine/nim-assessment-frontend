@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./styles/OrderModal.module.css";
 
 function OrderModal({ order, setOrderModal }) {
-  const [delivery, setDelivery] = useState(true);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -17,7 +16,6 @@ function OrderModal({ order, setOrderModal }) {
         name,
         phone,
         address,
-        delivery,
         items: order
       })
     });
@@ -41,30 +39,6 @@ function OrderModal({ order, setOrderModal }) {
       <div className={styles.orderModalContent}>
         <h2>Place Order</h2>
         <form className={styles.form}>
-          <div className={styles.formGroup}>
-            <div className={styles.deliveryChoice}>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setDelivery(true);
-                }}
-                className={delivery ? styles.active : ""}
-                type="button"
-              >
-                Delivery
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setDelivery(false);
-                }}
-                className={!delivery ? styles.active : ""}
-                type="button"
-              >
-                Pickup
-              </button>
-            </div>
-          </div>
           <div className={styles.formGroup}>
             <label htmlFor="name">
               Name
