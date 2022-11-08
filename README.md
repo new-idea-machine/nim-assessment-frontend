@@ -2,6 +2,7 @@
 
 <img src="https://github.com/new-idea-machine/nim-project-init/blob/main/bin/logo.png?raw=true" width="200"  align="left" />
 <h1>Nim Assessment</h1>
+<br />
 </div>
 
 #### Description
