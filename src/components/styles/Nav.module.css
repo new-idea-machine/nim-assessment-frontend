@@ -1,0 +1,47 @@
+.navLink {
+  color: var(--secondary-text);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.navLink:hover {
+  color: var(--secondary-accent);
+  background: none;
+}
+.navLink:active {
+  transform: scale(1);
+}
+
+.navItem {
+  list-style: none;
+}
+.navLink.active {
+  color: var(--secondary-accent);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: var(--secondary-color);
+}
+
+.navListLeft {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navListRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}

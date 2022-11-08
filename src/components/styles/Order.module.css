@@ -1,0 +1,90 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 100%;
+  gap: 60px;
+  position: relative;
+}
+/* * {
+  border: 1px solid rgb(224, 125, 125);
+} */
+.subContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  overflow-y: hidden;
+  text-align: center;
+  padding-bottom: 90px;
+}
+
+.subContainer h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu {
+  height: 100%;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.order ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.order li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.order button,
+.order h3 {
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+.order li {
+  align-self: flex-end;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+.item > p {
+  font-weight: 600;
+}
+
+.quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}

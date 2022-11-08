@@ -1,0 +1,119 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#root {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+  --primary-color: #f6edfa;
+  --primary-text: #0e005e;
+  --primary-accent: #000acd;
+  --primary-hover: #e6d9f9;
+  --secondary-color: #8500d8;
+  --secondary-text: #d9f4fe;
+  --secondary-accent: #fdcba4;
+  --secondary-hover: #a500b8;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px 80px;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  overflow-y: hidden;
+  position: relative;
+}
+
+.page h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.page h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+button {
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--secondary-text);
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--secondary-hover);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button.small-button {
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+label {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--secondary-color);
+  margin-bottom: 20px;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background-color: var(--primary-hover);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

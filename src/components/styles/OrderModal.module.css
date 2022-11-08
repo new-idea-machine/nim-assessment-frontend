@@ -1,0 +1,65 @@
+.orderModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.orderModalContent {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+
+.orderModalContent h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.orderModalButtons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.formGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deliveryChoice {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.deliveryChoice button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.deliveryChoice button:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.deliveryChoice .active {
+  background-color: var(--secondary-accent);
+  color: var(--secondary-color);
+}
