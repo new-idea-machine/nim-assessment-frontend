@@ -10,11 +10,11 @@ function Order({ order, setOrderModal }) {
       <div className={styles.order}>
         <ul>
           {order.map((item) => (
-            <li key={item.id}>
+            <li key={item.item.id}>
               <div className={styles.item}>
-                <p>{item.name}</p>
+                <p>{item.item.name}</p>
                 <div className={styles.quantity}>
-                  <p>${item.price}</p>
+                  <p>${item.item.price}</p>
                   <p>Quantity: {item.quantity}</p>
                 </div>
               </div>
@@ -26,7 +26,7 @@ function Order({ order, setOrderModal }) {
           Total: $
           {(
             order.reduce(
-              (total, item) => total + item.price * item.quantity,
+              (total, item) => total + item.item.price * item.quantity,
               0
             ) * 1.05
           ).toFixed(2)}
