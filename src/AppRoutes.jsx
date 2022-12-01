@@ -1,16 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav";
-import Order from "./components/Order";
+import { Routes, Route } from "react-router-dom";
+import Main from "./components/Main";
 
 function AppRoutes() {
   return (
-    <Router>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Order />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Main />} />
+    </Routes>
   );
 }
 

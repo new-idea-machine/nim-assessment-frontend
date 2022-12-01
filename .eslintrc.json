@@ -14,7 +14,7 @@
   "rules": {
     "max-len": ["warn", { "code": 100, "ignoreComments": true }],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [2, { "extensions": [".jsx"] }],
     "react/prop-types": [2, { "skipUndeclared": true }],
     "react/button-has-type": "off"
   }
