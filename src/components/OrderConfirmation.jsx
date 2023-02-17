@@ -12,12 +12,15 @@ export default function OrderConfirmation({ order }) {
         <p>$ {item.item.price}</p>
       </li>)
 
+  const totalOrder = items.reduce(
+    (total, item) => total + item.item.price * item.quantity, 0) * 1.05
+
   return (
     <div className={styles.orderConfirmation}>
       <div className={styles.customerInfo}>
         <p>Thank you for your order {name}!</p>
         <p>Order ID: {_id}</p>
-        <p>Address : {address}</p>
+        <p>Address: {address}</p>
       </div>
 
       <ul className={styles.itemListContainer}>
@@ -29,5 +32,6 @@ export default function OrderConfirmation({ order }) {
 
         {displayItems}
       </ul>
+      <p>Total Order: $ {totalOrder.toFixed(2)}</p>
     </div >)
 }
