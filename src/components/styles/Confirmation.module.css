@@ -1,0 +1,36 @@
+.orderConfirmation {
+  display: flex;
+  grid-template-columns: 2fr 1fr;
+  height: 100%;
+  gap: 30px;
+  position: relative;
+  flex-direction: column;
+}
+
+.container {
+  /* margin: auto 50px; */
+  padding: 40px 80px;
+  display: flex;
+  background-color: var(--primary-color);
+  color:var(--primary-text);
+  height: 100%;
+}
+
+.customerInfo {
+  font-size: 1.5rem;
+}
+
+.itemList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemListContainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.itemTitle {
+  font-size: 1.2rem;
+}
