@@ -19,9 +19,16 @@ function OrderModal({ order, setOrderModal }) {
         items: order
       })
     });
-    const data = await response.json();
-    console.log(data);
+
+    if (response.status === 200) {
+      const data = await response.json();
+      console.log(data);
+      window.location.href = `/order-confirmation/${data.id}`;
+    } else {
+      console.error("Failed to place the order");
+    }
   };
+
   return (
     <>
       <div
