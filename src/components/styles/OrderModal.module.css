@@ -38,6 +38,12 @@
   justify-content: space-evenly;
   width: 100%;
 }
+
+.errorMessage {
+  color: red;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
 .formGroup {
   width: 100%;
   display: flex;
