@@ -1,0 +1,112 @@
+.OrderConfirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin: 2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.label {
+  flex: 3;
+  white-space: nowrap;
+}
+
+.customer-info table,
+.ordered-items table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customer-info td,
+.ordered-items td {
+  padding: 0.5rem;
+}
+
+.customer-info .label,
+.ordered-items .label {
+  width: 50%;
+  font-weight: bold;
+}
+
+.customer-info .value,
+.ordered-items .value {
+  width: 50%;
+}
+
+.order-total table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-total td {
+  padding: 0.5rem;
+}
+
+.order-total .label {
+  width: 50%;
+  font-weight: bold;
+}
+
+.order-total .value {
+  width: 50%;
+}
+
+.ordered-items th {
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.ordered-items .item-name {
+  width: 50%;
+}
+
+.ordered-items .qty,
+.ordered-items .price {
+  width: 50%;
+}
+
+.value {
+  flex: 3;
+}
+.customer-info .value,
+.order-total .value {
+  width: 50%;
+  text-align: right;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.section {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
