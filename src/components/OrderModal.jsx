@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from "react";
 import styles from "./styles/OrderModal.module.css";
 
