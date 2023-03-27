@@ -6,7 +6,7 @@ function Menu({ menuItems, order, setOrder }) {
   const addItemToOrder = (item) => {
     const newOrder = [...order];
     const itemInOrder = newOrder.find(
-      (orderItem) => orderItem.item === item.id
+      (orderItem) => orderItem.item.id === item.id
     );
     if (itemInOrder) {
       itemInOrder.quantity += 1;
