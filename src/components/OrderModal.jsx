@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from "react";
 import styles from "./styles/OrderModal.module.css";
 
@@ -5,8 +6,46 @@ function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const validateForm = () => {
+    const phoneRegex = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
+    const phoneMatch = phone.match(phoneRegex);
+    const nameRegex = /^[a-zA-Z\s]{2,}$/;
+    const nameMatch = name.match(nameRegex);
+    const addressRegex = /^.{5,}$/;
+    const addressMatch = address.match(addressRegex);
+
+    if (!nameMatch) {
+      setErrorMessage("Please enter a valid name !");
+      return false;
+    }
+
+    if (!addressMatch) {
+      setErrorMessage("Please enter a valid address !");
+      return false;
+    }
+
+    if (phoneMatch) {
+      setPhone(`(${phoneMatch[1]}) ${phoneMatch[2]}-${phoneMatch[3]}`);
+    } else {
+      setErrorMessage("Please enter a valid 10-digit phone number !");
+      return false;
+    }
+
+    if (!name || !phone || !address) {
+      setErrorMessage("All fields must be filled out !");
+      return false;
+    }
+
+    setErrorMessage("");
+    return true;
+  };
 
   const placeOrder = async () => {
+    if (!validateForm()) {
+      return;
+    }
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -19,8 +58,14 @@ function OrderModal({ order, setOrderModal }) {
         items: order
       })
     });
-    const data = await response.json();
-    console.log(data);
+    if (response.status === 200) {
+      const data = await response.json();
+      console.log(data);
+
+      window.location.href = `/order-confirmation/${data.id}`;
+    } else {
+      console.error("Failed to place the order");
+    }
   };
   return (
     <>
@@ -79,6 +124,8 @@ function OrderModal({ order, setOrderModal }) {
             </label>
           </div>
         </form>
+
+        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
 
         <div className={styles.orderModalButtons}>
           <button
