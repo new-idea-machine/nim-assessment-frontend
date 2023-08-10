@@ -13,14 +13,15 @@ function ConfirmationPage() {
         `http://localhost:3001/api/orders/order/${orderId}`
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      // if (!response.ok) {
+      //   console.log("pointA", pointA);
+      //   throw new Error(`HTTP error! Status: ${response.status}`);
+      // }
 
       const data = await response.json();
       setOrder(data);
     } catch (error) {
-      setOrder(null);
+      setOrder(error);
     }
   };
 
@@ -30,7 +31,7 @@ function ConfirmationPage() {
 
   return (
     <div className={styles["confirmation-page"]}>
-      {order ? <OrderConfirmation order={order} /> : <p>Loading...</p>}
+      {order ? <OrderConfirmation order={order} /> : <p>Loading order..</p>}
     </div>
   );
 }
