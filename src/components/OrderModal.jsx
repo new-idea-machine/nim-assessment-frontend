@@ -7,7 +7,7 @@ function OrderModal({ order, setOrderModal }) {
   const [address, setAddress] = useState("");
 
   const placeOrder = async () => {
-    const response = await fetch("/api/orders", {
+    const response = await fetch("http://localhost:3001/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -20,7 +20,9 @@ function OrderModal({ order, setOrderModal }) {
       })
     });
     const data = await response.json();
-    console.log(data);
+    if (response.status === 200) {
+      window.location.href = `/order-confirmation/${data.id}`;
+    }
   };
   return (
     <>
