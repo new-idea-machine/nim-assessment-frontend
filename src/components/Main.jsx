@@ -10,7 +10,7 @@ function Main() {
   const [orderModal, setOrderModal] = useState(false);
 
   const getItems = async () => {
-    const response = await fetch("/api/menu");
+    const response = await fetch("http://localhost:3001/api/menu");
     const data = await response.json();
     setMenuItems(data);
   };

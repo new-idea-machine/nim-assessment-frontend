@@ -5,9 +5,14 @@ function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [errorMessages, setErrorMessages] = useState({
+    name: "",
+    phone: "",
+    address: ""
+  });
 
   const placeOrder = async () => {
-    const response = await fetch("/api/orders", {
+    const response = await fetch("http://localhost:3001/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -20,8 +25,38 @@ function OrderModal({ order, setOrderModal }) {
       })
     });
     const data = await response.json();
-    console.log(data);
+    if (response.status === 200) {
+      window.location.href = `/order-confirmation/${data.id}`;
+    }
   };
+
+  function validateForm() {
+    let isValid = true;
+    const errors = {};
+
+    if (!name) {
+      errors.name = "Name must be filled out";
+      isValid = false;
+    }
+
+    const phoneRegex = /^\(?(\d{3})\)?[- ]?\d{3}[- ]?\d{4}$/;
+    if (!phone || !phone.match(phoneRegex)) {
+      errors.phone = "Invalid phone number";
+      isValid = false;
+    }
+
+    if (!address) {
+      errors.address = "Address must be filled out";
+      isValid = false;
+    }
+
+    setErrorMessages(errors);
+
+    if (isValid) {
+      placeOrder();
+    }
+  }
+
   return (
     <>
       <div
@@ -38,7 +73,7 @@ function OrderModal({ order, setOrderModal }) {
       />
       <div className={styles.orderModalContent}>
         <h2>Place Order</h2>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={validateForm}>
           <div className={styles.formGroup}>
             <label htmlFor="name">
               Name
@@ -50,6 +85,11 @@ function OrderModal({ order, setOrderModal }) {
                 type="text"
                 id="name"
               />
+              {errorMessages.name && (
+                <span className={styles.errorMessage}>
+                  {errorMessages.name}
+                </span>
+              )}
             </label>
           </div>
           <div className={styles.formGroup}>
@@ -63,6 +103,11 @@ function OrderModal({ order, setOrderModal }) {
                 type="phone"
                 id="phone"
               />
+              {errorMessages.phone && (
+                <span className={styles.errorMessage}>
+                  {errorMessages.phone}
+                </span>
+              )}
             </label>
           </div>
           <div className={styles.formGroup}>
@@ -76,6 +121,11 @@ function OrderModal({ order, setOrderModal }) {
                 type="phone"
                 id="address"
               />
+              {errorMessages.address && (
+                <span className={styles.errorMessage}>
+                  {errorMessages.address}
+                </span>
+              )}
             </label>
           </div>
         </form>
@@ -87,14 +137,7 @@ function OrderModal({ order, setOrderModal }) {
           >
             Close
           </button>
-          <button
-            onClick={() => {
-              placeOrder();
-            }}
-            className={styles.orderModalPlaceOrder}
-          >
-            Place Order
-          </button>
+          <button onClick={validateForm}>Place Order</button>
         </div>
       </div>
     </>
