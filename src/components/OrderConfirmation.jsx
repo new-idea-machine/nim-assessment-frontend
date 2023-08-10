@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./styles/OrderConfirmation.module.css";
 
-function OrderConfirmation({ name, address, items, id }) {
+function OrderConfirmation({ order }) {
+  const { name, address, items, id } = order;
   return (
     <div className={styles["order-confirmation"]}>
       <div className={styles["order-header"]}>
