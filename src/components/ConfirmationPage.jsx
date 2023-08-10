@@ -38,7 +38,7 @@ function ConfirmationPage() {
           id={order.id}
         />
       ) : (
-        <p>Loading...</p>
+        <p>Loading order..</p>
       )}
     </div>
   );
