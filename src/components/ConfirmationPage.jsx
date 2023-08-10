@@ -30,16 +30,7 @@ function ConfirmationPage() {
 
   return (
     <div className={styles["confirmation-page"]}>
-      {order ? (
-        <OrderConfirmation
-          name={order.name}
-          address={order.address}
-          items={order.items}
-          id={order.id}
-        />
-      ) : (
-        <p>Loading...</p>
-      )}
+      {order ? <OrderConfirmation order={order} /> : <p>Loading...</p>}
     </div>
   );
 }
