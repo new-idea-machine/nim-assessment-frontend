@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import ConfirmationPage from "./ConfirmationPage";
 import Menu from "./Menu";
 import Order from "./Order";
 import OrderModal from "./OrderModal";
+
 import styles from "./styles/Order.module.css";
 
 function Main() {
@@ -31,6 +33,7 @@ function Main() {
           <Order order={order} setOrderModal={setOrderModal} />
         )}
       </div>
+      <ConfirmationPage order={order} />
     </div>
   );
 }
