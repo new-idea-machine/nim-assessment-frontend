@@ -4,8 +4,9 @@ import OrderConfirmation from "./OrderConfirmation";
 import { testOrder } from "../sampleTestData";
 
 function ConfirmationPage() {
-  const [setOrder] = useState({ items: [] });
+  const [ setOrder] = useState({ items: [] });
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const { id } =
     useParams(); /* useParams is hooking the id value from the URL */
@@ -23,8 +24,8 @@ function ConfirmationPage() {
           window.location.href = `/order-confirmation/${data.id}`;
         }
       }
-    } catch (error) {
-      <p>{error}</p>;
+    } catch (err) {
+      setError(err);
     }
   };
 
@@ -34,17 +35,17 @@ function ConfirmationPage() {
     }, [id]);
   });
 
-  return (
-    <div>
-      {loading ? (
-        <p>Loading ...</p>
-      ) : (
-        <ul>
-          <OrderConfirmation order={testOrder} />
-        </ul>
-      )}
-    </div>
-  );
+let content;
+  if (loading) {
+    content = <p>Loading ...</p>;
+  } else if (error) {
+    content = <p>Error: {error.message}</p>;
+  } else {
+    content = <OrderConfirmation order={testOrder} />;
+  }
+
+  return <div>{content}</div>;
+  
 }
 
 export default ConfirmationPage;
