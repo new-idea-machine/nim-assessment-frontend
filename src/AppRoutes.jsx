@@ -5,10 +5,10 @@ import ConfirmationPage from './components/ConfirmationPage'
 
 function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/order-confirmation/:id" element={<ConfirmationPage />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/order-confirmation/:id" element={<ConfirmationPage />} />
+      </Routes>
   );
 }
 
