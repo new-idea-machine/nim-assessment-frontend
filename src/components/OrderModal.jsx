@@ -19,7 +19,9 @@ function OrderModal({ order, setOrderModal }) {
         items: order
       })
     });
+    
     const data = await response.json();
+    // Aqui saca toda la informacion despues de llenar el modal con nomre direccion, etc a la consola.
     console.log(data);
   };
   return (
