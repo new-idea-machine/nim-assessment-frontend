@@ -12,6 +12,7 @@ function Main() {
   const getItems = async () => {
     const response = await fetch("/api/menu");
     const data = await response.json();
+   // console.log(data);
     setMenuItems(data);
   };
 
