@@ -1,38 +1,35 @@
 
-
-function ConfirmationPage( { id, order} ){
-
+function ConfirmationPage( { id, order, name, phone, address } ){
         const getDatabyId = () => {
             const orderUpdated = order.map( item => {
                 if(item.id === id){
                     return {
                       ...item,  
-                        status: "Confirmado"
+                      name,
+                      phone,
+                      address,
+                     status: "Confirmado"
                     }
                 }
-                // return item
-                return {
-                    id: item.id,
-                    name: item.name,
-                    price: item.price,
-                    quantity: item.quantity
-                }
-            })
-            console.log(orderUpdated);
-            
-        }
+                 return {
+                //     // id: item.id,
+                //     // name: item.name,
+                //     // price: item.price,
+                //     // quantity: item.quantity,
+                      status: item.status
+                 }
+               
+        })           
+            console.log("This is the data from this variable " , orderUpdated);          
+ }    
 
-    return (        
-        <div>
-                <h1>Testing New Component Confirmacions</h1>
-                <h2>The order by ID</h2>
-
-                <button onClick={getDatabyId(id)}> Confirm Order </button>
-              
-        </div>
-    );
-   
-
+    return (          
+        <>
+            <h1>Confirming Order</h1>
+            <h2>Order Id: ${id}</h2>    
+            <button onClick={getDatabyId}>Confirm Order</button>
+        </>
+    ); 
 }
  
 export default ConfirmationPage;

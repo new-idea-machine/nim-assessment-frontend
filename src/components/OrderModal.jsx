@@ -21,9 +21,9 @@ function OrderModal({ order, setOrderModal }) {
       })
     });
 
-    const data = await response.json();
-    // Aqui saca toda la informacion despues de llenar el modal con nomre direccion, etc a la consola.
-    console.log(data);
+   const data = await response.json();
+   // Aqui saca toda la informacion despues de llenar el modal con nomre direccion, etc a la consola.
+   console.log(data);
   };
 
   return (
@@ -42,7 +42,7 @@ function OrderModal({ order, setOrderModal }) {
       />
       <div className={styles.orderModalContent}>
 
-       {setOrderModal && <ConfirmationPage order={order} id={order.id}/>}
+       {setOrderModal && <ConfirmationPage order={order} id={order.id} name={name} phone={phone} address={address} />}
     
         <h2>Place Order</h2>
         <form className={styles.form}>
