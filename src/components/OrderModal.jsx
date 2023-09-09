@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles/OrderModal.module.css";
+import ConfirmationPage from "./ConfirmationPage";
 
 function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
@@ -19,11 +20,12 @@ function OrderModal({ order, setOrderModal }) {
         items: order
       })
     });
-    
+
     const data = await response.json();
     // Aqui saca toda la informacion despues de llenar el modal con nomre direccion, etc a la consola.
     console.log(data);
   };
+
   return (
     <>
       <div
@@ -39,6 +41,9 @@ function OrderModal({ order, setOrderModal }) {
         tabIndex={0}
       />
       <div className={styles.orderModalContent}>
+
+       {setOrderModal && <ConfirmationPage order={order} id={order.id}/>}
+    
         <h2>Place Order</h2>
         <form className={styles.form}>
           <div className={styles.formGroup}>

@@ -4,6 +4,7 @@ import Order from "./Order";
 import OrderModal from "./OrderModal";
 import styles from "./styles/Order.module.css";
 
+
 function Main() {
   const [menuItems, setMenuItems] = useState([]);
   const [order, setOrder] = useState([]);
@@ -12,7 +13,7 @@ function Main() {
   const getItems = async () => {
     const response = await fetch("/api/menu");
     const data = await response.json();
-   // console.log(data);
+    console.log(data);
     setMenuItems(data);
   };
 
