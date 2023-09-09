@@ -3,7 +3,7 @@
 function ConfirmationPage( { id, order} ){
 
         const getDatabyId = () => {
-            const orderActualizadas = order.map( item => {
+            const orderUpdated = order.map( item => {
                 if(item.id === id){
                     return {
                       ...item,  
@@ -18,16 +18,16 @@ function ConfirmationPage( { id, order} ){
                     quantity: item.quantity
                 }
             })
-            console.log(orderActualizadas);
+            console.log(orderUpdated);
             
         }
 
     return (        
         <div>
-                <h1>Probando nuevo componente de Confirmacions</h1>
-                <h2>Aqui se desplegara la orden basada en su id</h2>
+                <h1>Testing New Component Confirmacions</h1>
+                <h2>The order by ID</h2>
 
-                <button onClick={getDatabyId(id)}> Confirmar Orden </button>
+                <button onClick={getDatabyId(id)}> Confirm Order </button>
               
         </div>
     );
