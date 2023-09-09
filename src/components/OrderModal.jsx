@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles/OrderModal.module.css";
 import ConfirmationPage from "./ConfirmationPage";
 
+
 function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -42,7 +43,7 @@ function OrderModal({ order, setOrderModal }) {
       />
       <div className={styles.orderModalContent}>
 
-       {setOrderModal && <ConfirmationPage order={order} id={order.id} name={name} phone={phone} address={address} />}
+      {setOrderModal && <ConfirmationPage order={order} id={order.id} name={name} phone={phone} address={address} />}
     
         <h2>Place Order</h2>
         <form className={styles.form}>
@@ -97,6 +98,7 @@ function OrderModal({ order, setOrderModal }) {
           <button
             onClick={() => {
               placeOrder();
+
             }}
             className={styles.orderModalPlaceOrder}
           >

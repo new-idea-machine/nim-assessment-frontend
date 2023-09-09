@@ -1,3 +1,4 @@
+import styles from "./styles/Order.module.css";
 
 function ConfirmationPage( { id, order, name, phone, address } ){
         const getDatabyId = () => {
@@ -8,28 +9,62 @@ function ConfirmationPage( { id, order, name, phone, address } ){
                       name,
                       phone,
                       address,
-                     status: "Confirmado"
+                     status: "Confirmado",                  
                     }
                 }
                  return {
-                //     // id: item.id,
-                //     // name: item.name,
-                //     // price: item.price,
-                //     // quantity: item.quantity,
                       status: item.status
                  }
-               
-        })           
+           })           
             console.log("This is the data from this variable " , orderUpdated);          
- }    
+        };    
 
-    return (          
-        <>
-            <h1>Confirming Order</h1>
-            <h2>Order Id: ${id}</h2>    
-            <button onClick={getDatabyId}>Confirm Order</button>
-        </>
+    return (    
+
+    <div className={styles.subContainer}>
+      <div>
+        <h2>Your Order</h2>
+      </div>
+      <div> 
+                <p>${name}</p>
+                <p>${phone}</p>
+                <p>${address}</p>
+                <hr />
+        </div>
+      <div className={styles.order}>
+        <ul>
+          {order.map((item) => (
+            <li key={item.item.id}>
+              <div className={styles.item}>
+                <p>{item.item.name}</p>
+                <div className={styles.quantity}>
+                  <p>${item.item.price}</p>
+                  <p>Quantity: {item.quantity}</p>
+                </div>
+              </div>
+            </li>        
+          ))}
+        </ul>
+        <h3>
+          Total: $
+          {(
+            order.reduce(
+              (total, item) => total + item.item.price * item.quantity,
+              0
+            ) * 1.05
+          ).toFixed(2)}
+        </h3>
+        <button onClick={() => {
+               getDatabyId();
+         // setConfirmOrder(true);
+               }} >
+                Confirm Order
+        </button>
+    
+    </div>
+
+</div> 
+
     ); 
 }
- 
 export default ConfirmationPage;
