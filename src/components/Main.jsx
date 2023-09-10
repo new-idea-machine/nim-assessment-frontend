@@ -3,18 +3,19 @@ import Menu from "./Menu";
 import Order from "./Order";
 import OrderModal from "./OrderModal";
 import styles from "./styles/Order.module.css";
-// import ConfirmationPage from "./ConfirmationPage";
+import ConfirmationPage from "./ConfirmationPage";
 
 function Main() {
   const [menuItems, setMenuItems] = useState([]);
   const [order, setOrder] = useState([]);
   const [orderModal, setOrderModal] = useState(false);
+
   // const [confirmOrder, setConfirmOrder] = useState(false);
 
   const getItems = async () => {
     const response = await fetch("/api/menu");
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setMenuItems(data);
   };
 
@@ -25,8 +26,9 @@ function Main() {
   return (
     <div className="page">
       {orderModal && <OrderModal order={order} setOrderModal={setOrderModal} />}
-        {/* { orderModal && confirmOrder && <ConfirmationPage order={order} id={order.id} setConfirmOrder={setConfirmOrder}/>} */}
-
+         {orderModal &&  <ConfirmationPage order={order} setOrderModal={setOrderModal} />}
+         
+      <Menu menuItems={menuItems} setOrder={setOrder} setOrderModal={setOrderModal} />  
       <h1>Create an order</h1>
       <div className={styles.container}>
         <div className={styles.subContainer}>
