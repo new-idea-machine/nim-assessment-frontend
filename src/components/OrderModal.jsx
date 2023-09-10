@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./styles/OrderModal.module.css";
-
 
 function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
+  const navigate = useNavigate();
   // Aqui esta escribiendo la nueva orden en esta api en el servidor.
   // Le anade los campor de name, phone y address a la nueva orden
   // Es decir que el servidor tendra estas informaciones de las cuales debes
@@ -24,11 +25,13 @@ function OrderModal({ order, setOrderModal }) {
         items: order
       })
     });
-
-   const data = await response.json();
+      const data = await response.json();
    // Aqui saca toda la informacion despues de llenar el modal con nomre direccion, etc a la consola.
-   console.log(data);
-   return data;
+      console.log(data);
+       if(response.status === 200){
+      navigate(`/order-confirmation/${data.id}`);
+      console.log("Order placed!");
+      }
   };
 
   return (

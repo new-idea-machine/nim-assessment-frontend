@@ -7,7 +7,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="/order-confirmation/" element={<ConfirmationPage />} />
+      <Route path="/order-confirmation/:id" element={<ConfirmationPage />} />
     </Routes>
   );
 }
