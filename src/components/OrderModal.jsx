@@ -105,7 +105,6 @@ function OrderModal({ order, setOrderModal }) {
           <button
             onClick={() => {
               placeOrder();
-
             }}
             className={styles.orderModalPlaceOrder}
           >

@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import OrderConfirmation from "./OrderConfirmation";
+
 
 function ConfirmationPage(){
 
@@ -26,7 +28,8 @@ function ConfirmationPage(){
         <> 
             <h1>Confirmation Page</h1>
 
-            <h2>Order Details</h2>
+            <OrderConfirmation infoOrderById={infoOrderById} />
+
        </>
     );
 }

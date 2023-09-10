@@ -3,13 +3,12 @@ import Menu from "./Menu";
 import Order from "./Order";
 import OrderModal from "./OrderModal";
 import styles from "./styles/Order.module.css";
-import ConfirmationPage from "./ConfirmationPage";
+
 
 function Main() {
   const [menuItems, setMenuItems] = useState([]);
   const [order, setOrder] = useState([]);
   const [orderModal, setOrderModal] = useState(false);
-
   // const [confirmOrder, setConfirmOrder] = useState(false);
 
   const getItems = async () => {
@@ -26,7 +25,7 @@ function Main() {
   return (
     <div className="page">
       {orderModal && <OrderModal order={order} setOrderModal={setOrderModal} />}
-         {orderModal &&  <ConfirmationPage order={order} setOrderModal={setOrderModal} />}
+         {/* {orderModal &&  <ConfirmationPage order={order} setOrderModal={setOrderModal} />} */}
          
       <Menu menuItems={menuItems} setOrder={setOrder} setOrderModal={setOrderModal} />  
       <h1>Create an order</h1>
