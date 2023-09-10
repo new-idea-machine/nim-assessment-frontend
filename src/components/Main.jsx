@@ -4,7 +4,6 @@ import Order from "./Order";
 import OrderModal from "./OrderModal";
 import styles from "./styles/Order.module.css";
 
-
 function Main() {
   const [menuItems, setMenuItems] = useState([]);
   const [order, setOrder] = useState([]);

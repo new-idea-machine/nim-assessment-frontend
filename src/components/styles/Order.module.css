@@ -88,3 +88,8 @@
   align-items: flex-end;
   width: 100%;
 }
+
+h1 {
+  font-family:'Poppins';
+  font-weight: bolder;
+}

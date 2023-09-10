@@ -8,10 +8,7 @@ function OrderModal({ order, setOrderModal }) {
   const [address, setAddress] = useState("");
 
   const navigate = useNavigate();
-  // Aqui esta escribiendo la nueva orden en esta api en el servidor.
-  // Le anade los campor de name, phone y address a la nueva orden
-  // Es decir que el servidor tendra estas informaciones de las cuales debes
-  // recuperar el id del pedido y desplegarlo en el buevo componet=nte ConfirmationPage
+ 
   const placeOrder = async () => {
     const response = await fetch("/api/orders", {
       method: "POST",
@@ -26,12 +23,20 @@ function OrderModal({ order, setOrderModal }) {
       })
     });
       const data = await response.json();
-   // Aqui saca toda la informacion despues de llenar el modal con nomre direccion, etc a la consola.
       console.log(data);
-       if(response.status === 200){
-      navigate(`/order-confirmation/${data.id}`);
-      console.log("Order placed!");
+     
+      if (response.status === 200) {
+        try {
+          navigate(`/order-confirmation/${data.id}`);
+          console.log("Order placed!");
+        } catch (error) {
+          console.error("Error parsing response data:", error);
+        }
+      } else {
+        console.error("Error or Status not expected:", response.status);
       }
+
+
   };
 
   return (
@@ -50,8 +55,6 @@ function OrderModal({ order, setOrderModal }) {
       />
       <div className={styles.orderModalContent}>
 
-     {/* {setOrderModal && <ConfirmationPage order={order} id={order.id} name={name} phone={phone} address={address} />} 
-      */}
         <h2>Place Order</h2>
         <form className={styles.form}>
           <div className={styles.formGroup}>

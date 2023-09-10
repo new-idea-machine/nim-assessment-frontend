@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import OrderConfirmation from "./OrderConfirmation";
 
-
 function ConfirmationPage(){
 
     const [ infoOrderById, setInfoOrderById] = useState("");
@@ -22,15 +21,18 @@ function ConfirmationPage(){
     getOrderById();
     }, []);
 
-    console.log("Esta es la data order que recibe el componente ConfirmationPage" , infoOrderById);
-
+    console.log("Info infoOrderByID variable" , infoOrderById);
+    
     return (
-        <> 
-            <h1>Confirmation Page</h1>
-
-            <OrderConfirmation infoOrderById={infoOrderById} />
-
-       </>
+     
+        <div className="container">
+            <div className="mb-5">  
+                 <h1 className="text-center mt-5">CONFIRMATION PAGE</h1>
+            </div>
+                 <OrderConfirmation infoOrderById={infoOrderById} />
+                 <button className="d-grid gap-2 col-3 mx-auto mt-5 btn btn-primary col-3 p-2">Confirm your Order!</button>
+        </div>
+           
     );
 }
  
