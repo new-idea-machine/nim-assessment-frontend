@@ -6,7 +6,7 @@ function OrderConfirmation({ infoOrderById }){
         useEffect(() => {
             if (infoOrderById) {
               Swal.fire(
-                `Thank you for your order!, ${infoOrderById.name}`,
+                `Thank you for your order! ${infoOrderById.name}`,
                 "Please confirm this order on this page",
                 "success"
               );

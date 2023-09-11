@@ -25,9 +25,10 @@ function Main() {
     <div className="page">
       {orderModal && <OrderModal order={order} setOrderModal={setOrderModal} />}
          {/* {orderModal &&  <ConfirmationPage order={order} setOrderModal={setOrderModal} />} */}
-         
+      <h1>MENU</h1>
       <Menu menuItems={menuItems} setOrder={setOrder} setOrderModal={setOrderModal} />  
-      <h1>Create an order</h1>
+      <h3>Create an Order</h3>
+      
       <div className={styles.container}>
         <div className={styles.subContainer}>
           <Menu menuItems={menuItems} order={order} setOrder={setOrder} />

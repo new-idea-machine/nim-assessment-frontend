@@ -33,9 +33,8 @@ function OrderModal({ order, setOrderModal }) {
           console.error("Error parsing response data:", error);
         }
       } else {
-        console.error("Error or Status not expected:", response.status);
+        console.error("Status not expected:", response.status);
       }
-
 
   };
 
