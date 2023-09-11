@@ -5,7 +5,7 @@ import OrderConfirmation from "./OrderConfirmation";
 
 function ConfirmationPage(){
 
-    const [ infoOrderById, setInfoOrderById] = useState("");
+    const [ order, setOrder] = useState("");
     const { id } = useParams();
 
     useEffect( () => {
@@ -13,7 +13,7 @@ function ConfirmationPage(){
         try {
           const response = await fetch(`/api/orders/${id}`);
           const data = await response.json();
-          setInfoOrderById(data);
+          setOrder(data);
         } catch (error) {
           console.log("Error getting info-order");
         }
@@ -21,7 +21,7 @@ function ConfirmationPage(){
     getOrderById();
     }, []);
 
-    console.log("Info infoOrderByID variable" , infoOrderById);
+    console.log("Info infoOrderByID variable" , order);
     
     return (
      
@@ -29,7 +29,7 @@ function ConfirmationPage(){
             <div className="mb-5">  
                  <h1 className="text-center mt-5">CONFIRMATION PAGE</h1>
             </div>
-                 <OrderConfirmation infoOrderById={infoOrderById} />
+                 <OrderConfirmation order={order} />
                  <button className="d-grid gap-2 col-3 mx-auto mt-5 btn btn-primary col-3 p-2">Confirm your Order!</button>
         </div>
            
