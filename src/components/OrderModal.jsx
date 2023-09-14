@@ -20,6 +20,7 @@ function OrderModal({ order, setOrderModal }) {
       })
     });
     const data = await response.json();
+    // eslint-disable-next-line no-console
     console.log(data);
   };
   return (

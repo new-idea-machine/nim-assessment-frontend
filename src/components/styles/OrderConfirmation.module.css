@@ -1,0 +1,38 @@
+.container {
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.customerInfo {
+  margin-bottom: 20px;
+}
+
+.orderedItems {
+  margin-bottom: 20px;
+}
+
+.itemList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.itemList li {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+}
