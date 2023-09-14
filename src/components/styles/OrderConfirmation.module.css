@@ -1,0 +1,52 @@
+.container {
+  padding: 1.5rem 3rem;
+}
+
+.outline {
+  border-style: solid;
+  border-width: thin;
+  border-color: var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0.1rem 0.1rem #888888;
+}
+
+h2,
+h3 {
+  padding: 0.5rem 0;
+  font-weight: 300;
+}
+
+.dishList {
+  margin-bottom: 1rem;
+}
+
+li {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr;
+  padding: 0.5rem;
+}
+
+.dishHeader {
+  color: var(--primary-text);
+  background-color: var(--primary-color);
+  font-weight: 300;
+  font-size: large;
+  margin-bottom: 0.5rem;
+}
+
+.dishItem {
+  font-weight: 200;
+}
+
+.total {
+  font-weight: 200;
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+}
+
+.customer {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
+}
