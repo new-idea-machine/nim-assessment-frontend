@@ -10,7 +10,7 @@ function ConfirmationPage() {
   const getOrder = async () => {
     const response = await fetch(`/api/orders/${id}`);
     const data = await response.json();
-    setOrder({...data});
+    setOrder({ ...data });
     console.log(data);
   };
 
