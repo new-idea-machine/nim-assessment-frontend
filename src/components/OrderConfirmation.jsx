@@ -20,7 +20,7 @@ function OrderConfirmation(props) {
           <ul>
             {order.items.map((itemObject) => {
               const { item } = itemObject;
-              return <li>{item.name}</li>;
+              return <li key={item.id}>{item.name}</li>;
             })}
           </ul>
         </div>
