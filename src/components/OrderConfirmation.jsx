@@ -2,6 +2,7 @@ import styles from "./styles/OrderConfirmation.module.css";
 
 function OrderConfirmation(props) {
   const { order } = props;
+  console.log(order);
 
   return (
     <div className={styles.orderConfirmation}>
@@ -20,7 +21,7 @@ function OrderConfirmation(props) {
           <ul>
             {order.items.map((itemObject) => {
               const { item } = itemObject;
-              return <li key={item.id}>{item.name}</li>;
+              return <li key={item.id}>{item.name} x {itemObject.quantity}</li>;
             })}
           </ul>
         </div>
