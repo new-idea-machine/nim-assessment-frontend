@@ -16,9 +16,9 @@ function OrderConfirmation({ order }) {
         <p>Items Ordered:</p>
         <hr />
         <ul className={styles.itemList}>
-          {order.items.map((item) => (
-            <li key={item.id}>
-              {item.item.name} x{item.quantity}
+          {order.items.map(({ _id, item, quantity}) => (
+            <li key={_id}>
+              {item.name} x{quantity}
             </li>
           ))}
         </ul>

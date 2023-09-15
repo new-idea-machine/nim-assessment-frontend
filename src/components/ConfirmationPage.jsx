@@ -16,10 +16,6 @@ function ConfirmationPage() {
           }
         });
 
-        if (!response.ok) {
-          throw new Error("Error fetching data");
-        }
-
         const data = await response.json();
         setConfirmationInfo(data);
       } catch (error) {
@@ -34,7 +30,7 @@ function ConfirmationPage() {
   return (
     <div>
       <h1>Confirmation Page</h1>
-      {confirmationInfo && <OrderConfirmation order={confirmationInfo} />}
+      {confirmationInfo && <OrderConfirmation order={confirmationInfo} key={confirmationInfo.id}/>}
     </div>
   );
 }
