@@ -22,6 +22,6 @@
   list-style: inside;
 }
 
-.orderDetails>hr {
+.orderDetails > hr {
   margin: 1em;
 }

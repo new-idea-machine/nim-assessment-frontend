@@ -13,7 +13,6 @@ function ConfirmationPage() {
     const response = await fetch(`/api/orders/${id}`);
     const data = await response.json();
     setOrder({ ...data });
-    console.log(data);
   };
 
   useEffect(() => {
