@@ -7,27 +7,69 @@ function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [errorMessages, setErrorMessages] = useState([]);
 
   const navigate = useNavigate();
 
-  const placeOrder = async () => {
-    const response = await fetch("/api/orders", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name,
-        phone,
-        address,
-        items: order
-      })
-    });
-    const data = await response.json();
-    // eslint-disable-next-line no-console
-    console.log(data);
-    navigate(`/order-confirmation/${data.id}`)
+ 
+
+  const validatePhoneNumber  = (phoneNumber) => {
+    
+    const cleanNumber = phoneNumber.replace(/\D/g, "");
+
+    
+    // eslint-disable-next-line max-len
+    const formattedPhoneNumber = `(${cleanNumber.slice(0, 3)}) ${cleanNumber.slice(3, 6)}-${cleanNumber.slice(6, 10)}`;
+    
+    return formattedPhoneNumber;
   };
+
+  const validateFields = () => {
+    const errors = [];
+
+    if (!name.trim()) {
+      errors.push("Name is required");
+    }
+
+    if (!phone.trim()) {
+      errors.push("Phone number is required");
+    } else {
+      const validatedPhoneNumber = validatePhoneNumber (phone);
+      setPhone(validatedPhoneNumber);
+    }
+
+    if (!address.trim()) {
+      errors.push("Address is required");
+    }
+
+    setErrorMessages(errors);
+    return errors.length === 0;
+  };
+
+  const placeOrder = async () => {
+    if (validateFields()) {
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          address,
+          items: order,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        navigate(`/order-confirmation/${data.id}`);
+      } else {
+        setErrorMessages(["An error occurred while placing the order"]);
+      }
+    }
+  };
+
   return (
     <>
       <div
@@ -85,6 +127,17 @@ function OrderModal({ order, setOrderModal }) {
             </label>
           </div>
         </form>
+
+        {/* ERROR MESSAGE */}
+        {errorMessages.length > 0 && (
+          <div className={styles.errorMessages}>
+            {errorMessages.map((message) => (
+              <p key={message} className={styles.errorMessage}>
+                {message}
+              </p>
+            ))}
+          </div>
+        )}
 
         <div className={styles.orderModalButtons}>
           <button
