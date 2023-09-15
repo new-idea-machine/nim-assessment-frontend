@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./styles/OrderModal.module.css";
 
 function OrderModal({ order, setOrderModal }) {
+
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -19,8 +23,11 @@ function OrderModal({ order, setOrderModal }) {
         items: order
       })
     });
-    const data = await response.json();
-    console.log(data);
+    if (response.status === 200) {
+      const data = await response.json();
+      const { id } = data;
+      navigate(`order-confirmation/${id}`);
+    }
   };
   return (
     <>
