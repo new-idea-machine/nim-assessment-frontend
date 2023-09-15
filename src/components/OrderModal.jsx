@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles/OrderModal.module.css";
 
 function OrderModal({ order, setOrderModal }) {
-
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
