@@ -1,10 +1,12 @@
+import styles from "./styles/OrderConfirmation.module.css";
+
 function OrderConfirmation(props) {
   const { order } = props;
 
   return (
     <div className="order-confirmation">
       <h2>Thank you for your order!</h2>
-      <section className="order-details">
+      <section className={styles.orderDetails}>
         <header>
           <p>
             {order.name}
