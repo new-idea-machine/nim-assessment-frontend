@@ -21,7 +21,7 @@ function ConfirmationPage() {
 
   return (
     <div className={styles.confirmationPage}>
-      {Object.keys(order).length && <OrderConfirmation order={order} />}
+      {Object.keys(order).length > 0 && <OrderConfirmation order={order} />}
     </div>
   );
 }
