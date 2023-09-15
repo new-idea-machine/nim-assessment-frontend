@@ -20,7 +20,7 @@ function ConfirmationPage() {
 
   return (
     <div className="confirmation-page">
-      <OrderConfirmation order={order} />
+      {Object.keys(order).length && <OrderConfirmation order={order} />}
     </div>
   );
 }
