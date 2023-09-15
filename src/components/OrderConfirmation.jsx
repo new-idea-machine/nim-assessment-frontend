@@ -4,7 +4,7 @@ function OrderConfirmation(props) {
   const { order } = props;
 
   return (
-    <div className="order-confirmation">
+    <div className={styles.orderConfirmation}>
       <h2>Thank you for your order!</h2>
       <section className={styles.orderDetails}>
         <header>
@@ -15,13 +15,15 @@ function OrderConfirmation(props) {
           </p>
         </header>
         <hr />
-        <h5>Order details:</h5>
-        <ul>
-          {order.items.map((itemObject) => {
-            const { item } = itemObject;
-            return <li>{item.name}</li>;
-          })}
-        </ul>
+        <div className={styles.itemList}>
+          <h5>Order details:</h5>
+          <ul>
+            {order.items.map((itemObject) => {
+              const { item } = itemObject;
+              return <li>{item.name}</li>;
+            })}
+          </ul>
+        </div>
         <hr />
         <footer>
           <b>Order ID:</b> {order.id}

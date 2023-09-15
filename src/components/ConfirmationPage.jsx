@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
+import styles from "./styles/OrderConfirmation.module.css";
+
 import OrderConfirmation from "./OrderConfirmation";
 
 function ConfirmationPage() {
@@ -19,7 +21,7 @@ function ConfirmationPage() {
   }, []);
 
   return (
-    <div className="confirmation-page">
+    <div className={styles.confirmationPage}>
       {Object.keys(order).length && <OrderConfirmation order={order} />}
     </div>
   );
