@@ -24,7 +24,9 @@ function OrderModal({ order, setOrderModal }) {
     });
     const data = await response.json();
     console.log(data);
-
+    if(response.status === 200) {
+      navigate(`/order-confirmation/${data.id}`)
+    }
   };
   return (
     <>
