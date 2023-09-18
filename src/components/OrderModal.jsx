@@ -6,8 +6,17 @@ function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const navigate = useNavigate();
+
+  const phoneValidation = (number) => {
+    const comparison = /^\d{10}|[(),-]+$/;
+    if (!comparison.test(number)) {
+      return true
+    }
+    return false;
+  }
 
   const placeOrder = async () => {
     const response = await fetch("/api/orders", {
@@ -86,6 +95,14 @@ function OrderModal({ order, setOrderModal }) {
           </div>
         </form>
 
+        {errorMsg && (
+          <p>
+            All fields are required, please enter your information.
+          </p>
+        )}
+
+        <br />
+
         <div className={styles.orderModalButtons}>
           <button
             className={styles.orderModalClose}
@@ -95,7 +112,11 @@ function OrderModal({ order, setOrderModal }) {
           </button>
           <button
             onClick={() => {
-              placeOrder();
+              if ((!name || !phone || !address) || phoneValidation(phone))  {
+                setErrorMsg(true)
+              } else {
+                placeOrder();
+              }
             }}
             className={styles.orderModalPlaceOrder}
           >
