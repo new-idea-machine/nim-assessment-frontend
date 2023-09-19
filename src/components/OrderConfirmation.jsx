@@ -1,10 +1,11 @@
+import styles from "./styles/OrderConfirmation.module.css";
 
 function OrderConfirmation ({ order }) {
   const {name, address, id, items} = order;
 
   return (
-    <div>
-      <h1>Thank you for your order.</h1>
+    <div className={styles.centertext}>
+      <h1 className={styles.bouncytitle}>Thank you for your order.</h1>
       <br />
       <p>Order ID: {id}</p>
       <p>Name: {name}</p>

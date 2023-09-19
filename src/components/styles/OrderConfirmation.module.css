@@ -1,0 +1,23 @@
+/* Center the text horizontally and vertically */
+.centertext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Define the bouncy title animation */
+.bouncytitle {
+  font-size: 36px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-10px);
+  }
+}

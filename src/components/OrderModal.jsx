@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/OrderModal.module.css";
+import ErrStyles from "./styles/Error.module.css";
 
 function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
@@ -31,7 +32,7 @@ function OrderModal({ order, setOrderModal }) {
       navigate(`/order-confirmation/${data.id}`)
     }
   };
-  
+
   const phoneValidation = (number) => {
     const comparison = /^\d{10}|[(),-]+$/;
     if (!comparison.test(number)) {
@@ -128,19 +129,19 @@ function OrderModal({ order, setOrderModal }) {
 
 
         {addErr && (
-          <p>
+          <p className={ErrStyles.pulsetext}>
             Please enter your address.
           </p>
         )}
 
         {nameErr && (
-          <p>
+          <p className={ErrStyles.pulsetext}>
             Please enter your name.
           </p>
         )}
 
         {phoneErr && (
-          <p>
+          <p className={ErrStyles.pulsetext}>
             Please enter an appropriate phone number.
           </p>
         )}
