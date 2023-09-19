@@ -20,8 +20,8 @@ function OrderConfirmation(props) {
         <h3>Order ID</h3>
         <div>{order.id}</div>
       </div>
-      <div className={styles.order}>
-        <ul>
+      <div>
+        <ul className={styles.order}>
           {order.items.map((item) => (
             <li key={item.item.id}>
               <div className={styles.item}>
