@@ -6,18 +6,12 @@ function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [errorMsg, setErrorMsg] = useState(false);
+  const [phoneErr, setPhoneErr] = useState(false);
+  const [nameErr, setNameErr] = useState(false);
+  const [addErr, setAddErr] = useState(false);
 
   const navigate = useNavigate();
-
-  const phoneValidation = (number) => {
-    const comparison = /^\d{10}|[(),-]+$/;
-    if (!comparison.test(number)) {
-      return true
-    }
-    return false;
-  }
-
+  
   const placeOrder = async () => {
     const response = await fetch("/api/orders", {
       method: "POST",
@@ -37,6 +31,43 @@ function OrderModal({ order, setOrderModal }) {
       navigate(`/order-confirmation/${data.id}`)
     }
   };
+  
+  const phoneValidation = (number) => {
+    const comparison = /^\d{10}|[(),-]+$/;
+    if (!comparison.test(number)) {
+      return true
+    }
+    return false;
+  }
+
+  const fieldValidation = (n, p, a) => {
+    if (!n) {
+      setNameErr(true);
+    } else {
+      setNameErr(false);
+    }
+    if (!p) {
+      setPhoneErr(true);
+    } else {
+      setPhoneErr(false);
+    }
+    if(!a) {
+      setAddErr(true);
+    } else {
+      setAddErr(false)
+    }
+    if (n && p && a) {
+      setNameErr(false);
+      setAddErr(false);
+      if (phoneValidation(p)) {
+        setPhoneErr(true);
+      } else {
+        setPhoneErr(false);
+        placeOrder();
+      }
+    }
+  }
+
   return (
     <>
       <div
@@ -95,9 +126,22 @@ function OrderModal({ order, setOrderModal }) {
           </div>
         </form>
 
-        {errorMsg && (
+
+        {addErr && (
           <p>
-            All fields are required, please enter your information.
+            Please enter your address.
+          </p>
+        )}
+
+        {nameErr && (
+          <p>
+            Please enter your name.
+          </p>
+        )}
+
+        {phoneErr && (
+          <p>
+            Please enter an appropriate phone number.
           </p>
         )}
 
@@ -112,11 +156,7 @@ function OrderModal({ order, setOrderModal }) {
           </button>
           <button
             onClick={() => {
-              if ((!name || !phone || !address) || phoneValidation(phone))  {
-                setErrorMsg(true)
-              } else {
-                placeOrder();
-              }
+                fieldValidation(name, phone, address)
             }}
             className={styles.orderModalPlaceOrder}
           >
