@@ -28,6 +28,16 @@
   z-index: 101;
 }
 
+.modalAlert {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.modalAlert li {
+  margin-left: 20px;
+}
+
 .orderModalContent h2 {
   font-weight: 600;
   margin-bottom: 20px;
@@ -44,6 +54,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.error {
+  border: 2px solid #d32f2f;
+  background-color: #ffcdd2;
 }
 
 .deliveryChoice {
