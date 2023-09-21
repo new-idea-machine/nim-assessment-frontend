@@ -7,7 +7,7 @@ function OrderModal({ order, setOrderModal }) {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const placeOrder = async () => {
     const response = await fetch("/api/orders", {
@@ -24,10 +24,9 @@ function OrderModal({ order, setOrderModal }) {
     });
 
     if (response.status === 200) {
-      const data = await response.json()
-      navigate(`/order-confirmation/${data.id}`)
+      const data = await response.json();
+      navigate(`/order-confirmation/${data.id}`);
     }
-
   };
   return (
     <>
