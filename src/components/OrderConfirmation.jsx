@@ -16,7 +16,7 @@ function OrderConfirmation({ order }) {
             <h3>Items: </h3>
             <ul>
                 {order.items.map((item) => (
-                    <li key={item.id}>{item.item.name} x {item.quantity}</li>
+                    <li key={item.item.id}>{item.item.name} x {item.quantity}</li>
                 ))}
             </ul>          
         </section>
