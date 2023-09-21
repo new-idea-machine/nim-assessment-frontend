@@ -3,27 +3,22 @@ function OrderConfirmation({ order }) {
     return (
         <section>
             <h1>Thank you for your order</h1>
-            <div className="order_details">
-                <h3>Order ID: </h3>
-                <p>{order.id}</p>
-            </div>
-            <div className="order_details">
-                <h3>Customer: </h3>
-                <p>{order.name}</p>
-            </div>
-            <div className="order_details">
-                <h3>Address: </h3>
-                <p>{order.addrerss}</p>
-            </div>
-            <div className="order_details">
-                <h3>Items: </h3>
-                <ul>
-                {order.items.map((item, index) => (
-                    <li key={index}>{item.name} x {item.quantity}</li>
+            
+            <p><strong>Order ID:</strong> {order.id}</p>
+        
+        
+            <p><strong>Customer:</strong> {order.name}</p>
+        
+        
+            <p><strong>Address:</strong> {order.address}</p>
+        
+        
+            <h3>Items: </h3>
+            <ul>
+                {order.items.map((item) => (
+                    <li key={item.id}>{item.item.name} x {item.quantity}</li>
                 ))}
-
-                </ul>
-            </div>
+            </ul>          
         </section>
     )
 }
