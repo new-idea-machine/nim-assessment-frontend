@@ -1,0 +1,17 @@
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3em;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 1em;
+}
+
+.itemsContainer {
+  margin-top: 1.5em;
+  display: grid;
+  justify-content: center;
+}
