@@ -1,6 +1,6 @@
 import React, { useEffect, useState }from "react";
-import { useParams } from "react-router"
-
+import { useParams } from "react-router";
+import OrderConfirmation from "./OrderConfirmation";
 
 function ConfirmationPage() {
   const [ order, setOrder ] = useState(null);
